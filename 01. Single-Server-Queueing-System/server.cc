@@ -19,9 +19,9 @@ Server :: Server () : a_(this), d_(this)
 
 double Server :: exponential(double mean) {
 
-	srand(time(0));
-    double u = (double) rand()/(RAND_MAX);
-    return -(mean * log(u));
+    double r = (double)rand()/(RAND_MAX + 1.0);
+    double ex = -log (r)*mean;
+    return ex;
 }
 
 void Server :: initialize () {
@@ -159,7 +159,7 @@ void Server::generateReport()
 	double serverUtilization = areaServer /Scheduler::now();
 	double avgServiceTime = totalServiceTime_/itemArrived_;
 	double avgSystemLength = areaSystem/Scheduler::now();
-	double trafficIntensity = arrivalMean_/departureMean_;
+	double trafficIntensity = departureMean_/arrivalMean_;
 	
 	report_ <<"Traffic Intensity :\t"<< trafficIntensity<<endl;
 	report_<< "Average Queue Delay :\t" << avgQueueDelay << endl;

@@ -13,8 +13,8 @@ int main ()
 	Server* s = new Server ();
 	s->createTraceFile ();
 
-	s->arrivalMean () = 5.0;
-	s->departureMean () = 5.5;
+	s->arrivalMean () = 1.0;
+	s->departureMean () = 0.9;
 	s->initialize ();
 
 	sch->run ();
